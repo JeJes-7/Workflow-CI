@@ -1,0 +1,8 @@
+name: Heart_Failure_Project
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    # Ubah perintahnya memanggil modelling.py
+    command: "python modelling.py"
