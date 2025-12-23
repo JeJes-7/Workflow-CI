@@ -2,6 +2,7 @@ import argparse
 import pandas as pd
 import mlflow
 import mlflow.sklearn
+import sys
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -9,6 +10,7 @@ from sklearn.metrics import accuracy_score
 
 def main(data_path):
     # Load data clean
+    data_path = sys.argv[2] if len(sys.argv) > 2 else "data/processed/data_clean.csv"
     df = pd.read_csv(data_path)
 
     X = df.drop("DEATH_EVENT", axis=1)
@@ -43,3 +45,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args.data_path)
+
