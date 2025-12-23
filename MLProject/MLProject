@@ -1,8 +1,9 @@
-name: Heart_Failure_Project
+name: heart-failure-ml
 
 conda_env: conda.yaml
 
 entry_points:
   main:
-    # Ubah perintahnya memanggil modelling.py
-    command: "python modelling.py"
+    parameters:
+      data_path: {type: str}
+    command: "python modelling.py --data_path {data_path}"
